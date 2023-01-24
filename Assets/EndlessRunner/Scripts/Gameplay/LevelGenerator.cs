@@ -21,11 +21,14 @@ public class LevelGenerator : MonoBehaviour
     private int colorNumber = 0;
 
     #region Pool Platform
+    [SerializeField] private bool isPoolForward = false;
+
     public List<Platform> PlatformPool = new List<Platform>();
     //last trigger platform
     private Platform lastHitPlatform;
     private int hitCounter = 0;
-
+    //plaform at the end point
+    private Platform endPlatform;
     #endregion
 
 
@@ -48,6 +51,9 @@ public class LevelGenerator : MonoBehaviour
         Platform patch = Instantiate(platformPrefab, nextSpawnPosition, Quaternion.identity);
         nextSpawnPosition = patch.Endpoint().position;
 
+        endPlatform = patch;
+        //lastHitPlatform = patch;
+
         patch.transform.SetParent(EnvironmentHolder);
         PlatformPool.Add(patch);
         patch.SetMaterial(patchColors[colorNumber]);
@@ -69,18 +75,20 @@ public class LevelGenerator : MonoBehaviour
     }
     public IEnumerator ShiftPlatform(Platform patch)
     {
+
         hitCounter++;
 
         if (hitCounter >= 2)
         {
-            yield return new WaitForEndOfFrame();
-            lastHitPlatform.transform.position = nextSpawnPosition;
-            nextSpawnPosition = lastHitPlatform.Endpoint().position;
+            yield return null;
+
+            lastHitPlatform.transform.position = endPlatform.Endpoint().position;
+            endPlatform = lastHitPlatform;
+
             hitCounter--;
         }
 
         lastHitPlatform = patch;
-
     }
 
 

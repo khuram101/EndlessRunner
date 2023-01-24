@@ -349,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 523407949}
   m_LocalRotation: {x: -0.123861246, y: -0, z: -0, w: 0.9922996}
   m_LocalPosition: {x: 0, y: -0.6533575, z: 10.482234}
-  m_LocalScale: {x: 0.7, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 1, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1318790485}
   m_RootOrder: 0
@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 1318790485}
   - component: {fileID: 1318790484}
   - component: {fileID: 1318790483}
-  - component: {fileID: 1318790486}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -468,20 +467,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 14.23, y: 0, z: 0}
---- !u!114 &1318790486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318790482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8c498dd6f4a0849a0b13a7c5a3480b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  startTime: 1
 --- !u!1 &1373088859
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373088860}
+  - component: {fileID: 1373088861}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -512,6 +498,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373088861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373088859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8c498dd6f4a0849a0b13a7c5a3480b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -20
+  startTime: 1
 --- !u!1 &1690766976
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,27 +551,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c6dda39202200b44487ca8de2d2b12f0, type: 2}
   - {fileID: 2100000, guid: 3ad10bd75d3bb7f48965c9155678868f, type: 2}
   platformPrefab: {fileID: 425364256, guid: 6af5b583b7ed7684a9057cf815ccb194, type: 3}
-  PlatformPool:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  isPoolForward: 0
+  PlatformPool: []
 --- !u!4 &1690766978
 Transform:
   m_ObjectHideFlags: 0

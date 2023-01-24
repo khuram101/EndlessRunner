@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+
+    [SerializeField, Range(0,-50) ]  private float speed = 5;
     [SerializeField] private float startTime = 2;
     private bool isStart = false;
-    void Start()
-    {
-        
-    }
-
+ 
     // Update is called once per frame
     void Update()
     {
