@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollosionObject : MonoBehaviour, ICollision
 {
     [SerializeField] private Platform currentPlatform;
-    public void OnCollosionEnter(Collision other)
+    public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<IDamage>() != null)
             other.gameObject.GetComponent<IDamage>().OnDamage();
@@ -24,19 +24,19 @@ public class CollosionObject : MonoBehaviour, ICollision
 
     public void OnDamage()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnDamage(float amount)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
 
 public interface ICollision
 {
     void OnTriggerExit(Collider other);
-    void OnCollosionEnter(Collision other);
+    void OnCollisionEnter(Collision other);
 }
 public interface IDamage
 {
