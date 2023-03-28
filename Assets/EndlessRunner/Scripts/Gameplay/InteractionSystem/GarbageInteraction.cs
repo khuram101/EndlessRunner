@@ -18,12 +18,13 @@ public class GarbageInteraction : Interaction
         if (other.gameObject.TryGetComponent(out IDamagee damage))
         {
             damage.Damage();
-            ThrowProjectile();
+            //ThrowProjectile();
+            gameObject.SetActive(false);
         }
 
     }
 
-
+    
 
     void ThrowProjectile()
     {

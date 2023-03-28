@@ -16,6 +16,8 @@ public class Platform : PoolPatch, IDamage
         _ = StartCoroutine(levelGenerator.ShiftPlatform(GetComponent<Platform>()));
     }
 
+
+
     public override Transform Endpoint()
     {
         return base.Endpoint();
