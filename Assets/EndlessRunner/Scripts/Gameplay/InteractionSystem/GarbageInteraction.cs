@@ -17,7 +17,7 @@ public class GarbageInteraction : Interaction
     {
         if (other.gameObject.TryGetComponent(out IDamagee damage))
         {
-            //damage.Damage();
+            damage.Damage();
             ThrowProjectile();
         }
 

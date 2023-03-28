@@ -6,7 +6,9 @@ public class EnvironmentMovement : Movement
 {
     [SerializeField, Range(0, -50)] protected float speed = 5;
     private float minSpeed;
-    
+
+    private bool isStopMovement = false;
+
 
     private void Start()
     {
@@ -27,11 +29,17 @@ public class EnvironmentMovement : Movement
 
     public override void StartMovement()
     {
-        transform.position += speed * Time.deltaTime * Vector3.forward;
+        if (!isStopMovement)
+            transform.position += speed * Time.deltaTime * Vector3.forward;
     }
 
     public void SetSpeed(float val)
     {
         speed = minSpeed + (-val);
+    }
+
+    public void Movement(bool IsStatus)
+    {
+        isStopMovement = IsStatus;
     }
 }

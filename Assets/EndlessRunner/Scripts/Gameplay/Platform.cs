@@ -14,7 +14,6 @@ public class Platform : PoolPatch, IDamage
     public void ShiftToNextPoint()
     {
         _ = StartCoroutine(levelGenerator.ShiftPlatform(GetComponent<Platform>()));
-        //levelGenerator.ShiftPlatform(GetComponent<Platform>());
     }
 
     public override Transform Endpoint()
