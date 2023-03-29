@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4638202362079750946}
   - component: {fileID: 955324815040931036}
   m_Layer: 0
-  m_Name: Balloon
+  m_Name: BalloonRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6dda39202200b44487ca8de2d2b12f0, type: 2}
+  - {fileID: 2100000, guid: 3ad10bd75d3bb7f48965c9155678868f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrigger: 1
   force: 500
+  popParticle: {fileID: 6281681901867569164, guid: ce5ce21f80df5ca4b9bbcc5ecb809121,
+    type: 3}
 --- !u!54 &4638202362079750946
 Rigidbody:
   m_ObjectHideFlags: 0

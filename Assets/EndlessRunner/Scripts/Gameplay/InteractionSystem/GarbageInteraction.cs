@@ -6,6 +6,7 @@ public class GarbageInteraction : Interaction
 {
     [SerializeField] private bool isTrigger = false;
     [SerializeField] private float force = 100;
+    [SerializeField] private GameObject popParticle;
 
     private void Start()
     {
@@ -18,13 +19,14 @@ public class GarbageInteraction : Interaction
         if (other.gameObject.TryGetComponent(out IDamagee damage))
         {
             damage.Damage();
+            Instantiate(popParticle, transform.position, Quaternion.identity);
             //ThrowProjectile();
             gameObject.SetActive(false);
         }
 
     }
 
-    
+
 
     void ThrowProjectile()
     {

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class SpawnSystem : MonoBehaviour
 {
     public GameObject prefab;
+    [SerializeField] private GameObject[] spawnPrefabs;
     public BoxCollider spawnArea;
     public int numObjects = 10;
     public float minDistance = 1f;
@@ -24,14 +27,32 @@ public class SpawnSystem : MonoBehaviour
 
 
         // Generate a list of random positions to spawn objects at
-        spawnPositions = GenerateSpawnPositions(numObjects, minDistance, new Vector3(transform.position.x, transform.position.y, spawnArea.bounds.min.z), new Vector3(transform.position.x, transform.position.y, spawnArea.bounds.max.z));
+        //spawnPositions = GenerateSpawnPositions(numObjects, minDistance, new Vector3(transform.position.x, transform.position.y, spawnArea.bounds.min.z), new Vector3(transform.position.x, transform.position.y, spawnArea.bounds.max.z));
+        spawnPositions = GenerateSpawnPositions(numObjects, minDistance, new Vector3(spawnArea.bounds.min.x, transform.position.y, spawnArea.bounds.min.z), new Vector3(spawnArea.bounds.max.x, transform.position.y, spawnArea.bounds.max.z));
 
 
         // Spawn the objects at the generated positions
         for (int i = 0; i < numObjects; i++)
         {
 
-            spawnedObjects.Add(Instantiate(prefab, spawnPositions[i], Quaternion.identity));
+            spawnedObjects.Add(Instantiate(spawnPrefabs[Random.Range(0, spawnPrefabs.Length)], spawnPositions[i], Quaternion.identity));
+            spawnedObjects[i].transform.SetParent(this.transform);
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+            ResetBalloons();
+    }
+    public void ResetBalloons()
+    {
+        for (int i = 0; i < numObjects; i++)
+        {
+            if (spawnedObjects.Count >= numObjects)
+            {
+                spawnedObjects[i].transform.position = spawnPositions[i];
+            }
+
         }
     }
 
